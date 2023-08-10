@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: HotfixPrefab
+  m_EditorClassIdentifier: 
+  m_GroupName: HotfixPrefab
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a99240da020a7fd4aba35acdc4e29239
+  m_SerializeEntries:
+  - m_GUID: e4aa0498d4032ed4e99994ee8f5b4fdd
+    m_Address: Cube
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefab
+  - m_GUID: d48bdf10f1f98734c8df6c34de274c19
+    m_Address: 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefab
+  - m_GUID: d7700347a8485b0468e2ab19262f1362
+    m_Address: Sphere
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - prefab
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1267e5bf6495b7247a41c2f2ff8a0fd0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 38a7a145fbd81e54ab9347037c4e2657, type: 2}
+    - {fileID: 11400000, guid: a4e5c074d1ab42a45a0f0b462e67d56f, type: 2}
