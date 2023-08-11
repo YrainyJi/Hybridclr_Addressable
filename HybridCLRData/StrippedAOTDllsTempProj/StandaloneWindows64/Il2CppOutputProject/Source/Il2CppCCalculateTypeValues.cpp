@@ -8904,10 +8904,10 @@ struct U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1  : public RuntimeObject
 {
 };
 
-// StartEntry/<>c__DisplayClass5_0
-struct U3CU3Ec__DisplayClass5_0_t32E7A990809970A132AC1BE9694779D370E5C5FC  : public RuntimeObject
+// StartEntry/<>c__DisplayClass6_0
+struct U3CU3Ec__DisplayClass6_0_t9333974A2C1AEF2F2BD58CB66A6970E6D0A5B34A  : public RuntimeObject
 {
-	// System.String StartEntry/<>c__DisplayClass5_0::aotDllName
+	// System.String StartEntry/<>c__DisplayClass6_0::aotDllName
 	String_t* ___aotDllName_0;
 };
 
@@ -31429,15 +31429,15 @@ struct U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1_StaticFields
 {
 	// StartEntry/<>c StartEntry/<>c::<>9
 	U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1* ___U3CU3E9_0;
-	// System.Action`1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.GameObject>> StartEntry/<>c::<>9__4_0
-	Action_1_t501005E5BA1DE50BCD8884D20F2E93B12ECEA696* ___U3CU3E9__4_0_1;
+	// System.Action`1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.GameObject>> StartEntry/<>c::<>9__5_0
+	Action_1_t501005E5BA1DE50BCD8884D20F2E93B12ECEA696* ___U3CU3E9__5_0_1;
 };
 
 // StartEntry/<>c
 
-// StartEntry/<>c__DisplayClass5_0
+// StartEntry/<>c__DisplayClass6_0
 
-// StartEntry/<>c__DisplayClass5_0
+// StartEntry/<>c__DisplayClass6_0
 
 // System.IO.Stream/<>c
 struct U3CU3Ec_t91DC0D0C0D596A7DE7AC8D84B591B987A6F4ED1A_StaticFields
@@ -37638,6 +37638,11 @@ struct DiagnosticEventCollector_tF83786D91685446C24FC6E443A86AF4B623E1367_Static
 // System.Reflection.SignaturePointerType
 
 // StartEntry
+struct StartEntry_tC73E29FBB0C2C2D1016268F8C4A60898D7B829DF_StaticFields
+{
+	// System.Reflection.Assembly StartEntry::hotfixAss
+	Assembly_t* ___hotfixAss_4;
+};
 
 // StartEntry
 
@@ -42865,9 +42870,9 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize2588 = { sizeof(MainStart_t1
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2589;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize2589 = { sizeof(U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1), -1, sizeof(U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2590;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize2590 = { sizeof(U3CU3Ec__DisplayClass5_0_t32E7A990809970A132AC1BE9694779D370E5C5FC), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize2590 = { sizeof(U3CU3Ec__DisplayClass6_0_t9333974A2C1AEF2F2BD58CB66A6970E6D0A5B34A), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2591;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize2591 = { sizeof(StartEntry_tC73E29FBB0C2C2D1016268F8C4A60898D7B829DF), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize2591 = { sizeof(StartEntry_tC73E29FBB0C2C2D1016268F8C4A60898D7B829DF), -1, sizeof(StartEntry_tC73E29FBB0C2C2D1016268F8C4A60898D7B829DF_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2592;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize2592 = { sizeof(U3CModuleU3E_t4791F64F4B6411D4D033A002CAD365D597AA2451), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2593;

@@ -1,21 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace HotFix
 {
     public class HotfixMono : MonoBehaviour
     {
-        // Start is called before the first frame update
+
         void Start()
         {
-            Debug.Log("add hotfix Mono");
-            cct();
             HotfixUpdata.Main();
+            Debug.Log("add hotfix Mono");
+            Cct();
         }
 
-
-        private void cct()
+        private void Cct()
         {
             Debug.Log("start hotfix!!!!!!!");
         }

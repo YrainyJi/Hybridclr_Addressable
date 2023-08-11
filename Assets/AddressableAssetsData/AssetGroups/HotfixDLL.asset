@@ -17,35 +17,26 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 794b108d249c2604e92c9364484c180d
   m_SerializeEntries:
-  - m_GUID: dd4669f51b708e54889da20057befac8
-    m_Address: mscorlib.dll
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - dll
-  - m_GUID: f6aa85930dbfd124aa92226e188e7073
-    m_Address: Unity.Addressables.dll
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - dll
-  - m_GUID: 222f3549f5ea8854bbaa1e783b0bedd9
-    m_Address: Unity.ResourceManager.dll
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - dll
-  - m_GUID: 1c10b84ae17c99d43bacfe461396a0bf
-    m_Address: System.dll
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - dll
   - m_GUID: 8335db891cc5fff458033505e1026974
     m_Address: Hotfix.dll
     m_ReadOnly: 0
     m_SerializedLabels:
     - dll
-  - m_GUID: 650a8499249ac554c990c06f7f766be0
+  - m_GUID: 8361486d850414c4bbea3089929c5911
+    m_Address: mscorlib.dll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - dll
+  - m_GUID: 7ad68117e00f24e458c51c3483f874da
     m_Address: System.Core.dll
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - dll
+  - m_GUID: 438b753b39d7202498e3edec901d4609
+    m_Address: System.dll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - dll
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1267e5bf6495b7247a41c2f2ff8a0fd0, type: 2}
   m_SchemaSet:

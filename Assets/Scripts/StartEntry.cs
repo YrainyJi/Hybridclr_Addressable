@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-using HotFix;
 using HybridCLR;
+using System.Collections.Generic;
+using System.Reflection;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-using System.Reflection;
-
 public class StartEntry : MonoBehaviour
 {
+    static Assembly hotfixAss;
+
     void Awake()
     {
         LoadDepend();
@@ -32,7 +30,7 @@ public class StartEntry : MonoBehaviour
     {
         Addressables.LoadAssetAsync<TextAsset>("Hotfix.dll").Completed += hotfix =>
         {
-            Assembly.Load(hotfix.Result.bytes);
+            hotfixAss = Assembly.Load(hotfix.Result.bytes);
             HotFix();
         };
     }
@@ -43,6 +41,8 @@ public class StartEntry : MonoBehaviour
         {
             Instantiate(obj.Result);
         };
+
+        //HotfixUpdata.Main();
     }
 
     private void LoadMetadataForAOTAssemblies()
@@ -51,9 +51,7 @@ public class StartEntry : MonoBehaviour
         {
             "mscorlib.dll",
             "System.dll",
-            "System.Core.dll",
-            "Unity.Addressables.dll",
-            "Unity.ResourceManager.dll"
+            "System.Core.dll"
         };
         foreach (var aotDllName in aotDllList)
         {
@@ -69,3 +67,6 @@ public class StartEntry : MonoBehaviour
         }
     }
 }
+
+
+

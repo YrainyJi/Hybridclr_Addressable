@@ -9,10 +9,10 @@ namespace HotFix
         public static void Main()
         {
             Debug.Log("开始热更");
-            test();
+            Start();
         }
 
-        private static void test()
+        private static void Start()
         {
             Debug.Log("热更内容");
         }

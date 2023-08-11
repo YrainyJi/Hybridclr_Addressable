@@ -27,8 +27,6 @@ MonoBehaviour:
   - mscorlib
   - System
   - System.Core
-  - Unity.ResourceManager
-  - Unity.Addressables
   outputLinkFile: HybridCLRGenerate/link.xml
   outputAOTGenericReferenceFile: HybridCLRGenerate/AOTGenericReferences.cs
   maxGenericReferenceIteration: 4

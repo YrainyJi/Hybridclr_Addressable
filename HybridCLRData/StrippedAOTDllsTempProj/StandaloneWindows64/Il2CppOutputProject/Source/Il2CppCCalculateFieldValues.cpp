@@ -7787,10 +7787,10 @@ struct U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1  : public RuntimeObject
 {
 };
 
-// StartEntry/<>c__DisplayClass5_0
-struct U3CU3Ec__DisplayClass5_0_t32E7A990809970A132AC1BE9694779D370E5C5FC  : public RuntimeObject
+// StartEntry/<>c__DisplayClass6_0
+struct U3CU3Ec__DisplayClass6_0_t9333974A2C1AEF2F2BD58CB66A6970E6D0A5B34A  : public RuntimeObject
 {
-	// System.String StartEntry/<>c__DisplayClass5_0::aotDllName
+	// System.String StartEntry/<>c__DisplayClass6_0::aotDllName
 	String_t* ___aotDllName_0;
 };
 
@@ -21490,6 +21490,11 @@ struct SignatureArrayType_t2363B762F8C412C7C4054B75639099E0DFA8B915  : public Si
 	bool ____isMultiDim_12;
 };
 
+// StartEntry
+struct StartEntry_tC73E29FBB0C2C2D1016268F8C4A60898D7B829DF  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+};
+
 // UnityEngine.ResourceManagement.Util.DelayedActionManager
 struct DelayedActionManager_tE193730980A528E04B8BA65B522F19885DD8C9A0  : public ComponentSingleton_1_t78EEE75ABA2E62E53292EF71DED60EE423AECBD9
 {
@@ -25592,15 +25597,15 @@ struct U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1_StaticFields
 {
 	// StartEntry/<>c StartEntry/<>c::<>9
 	U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1* ___U3CU3E9_0;
-	// System.Action`1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.GameObject>> StartEntry/<>c::<>9__4_0
-	Action_1_t501005E5BA1DE50BCD8884D20F2E93B12ECEA696* ___U3CU3E9__4_0_1;
+	// System.Action`1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.GameObject>> StartEntry/<>c::<>9__5_0
+	Action_1_t501005E5BA1DE50BCD8884D20F2E93B12ECEA696* ___U3CU3E9__5_0_1;
 };
 
 // StartEntry/<>c
 
-// StartEntry/<>c__DisplayClass5_0
+// StartEntry/<>c__DisplayClass6_0
 
-// StartEntry/<>c__DisplayClass5_0
+// StartEntry/<>c__DisplayClass6_0
 
 // System.IO.Stream/<>c
 struct U3CU3Ec_t91DC0D0C0D596A7DE7AC8D84B591B987A6F4ED1A_StaticFields
@@ -29351,6 +29356,15 @@ struct DiagnosticEventCollector_tF83786D91685446C24FC6E443A86AF4B623E1367_Static
 // System.Reflection.SignatureArrayType
 
 // System.Reflection.SignatureArrayType
+
+// StartEntry
+struct StartEntry_tC73E29FBB0C2C2D1016268F8C4A60898D7B829DF_StaticFields
+{
+	// System.Reflection.Assembly StartEntry::hotfixAss
+	Assembly_t* ___hotfixAss_4;
+};
+
+// StartEntry
 
 // UnityEngine.ResourceManagement.Util.DelayedActionManager
 
@@ -34142,10 +34156,13 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2588[2] =
 	static_cast<int32_t>(offsetof(MainStart_t1463D5322CB7084006874D97A1745C7F7FA541FB, ___handle_4)),static_cast<int32_t>(offsetof(MainStart_t1463D5322CB7084006874D97A1745C7F7FA541FB, ___currAssembly_5)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2589[2] = 
 {
-	static_cast<int32_t>(offsetof(U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1_StaticFields, ___U3CU3E9_0)),static_cast<int32_t>(offsetof(U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1_StaticFields, ___U3CU3E9__4_0_1)),};
+	static_cast<int32_t>(offsetof(U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1_StaticFields, ___U3CU3E9_0)),static_cast<int32_t>(offsetof(U3CU3Ec_t98B8576D7FA1AD911DD1B2791D0F5C26FA306AA1_StaticFields, ___U3CU3E9__5_0_1)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2590[1] = 
 {
-	static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass5_0_t32E7A990809970A132AC1BE9694779D370E5C5FC, ___aotDllName_0)),};
+	static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClass6_0_t9333974A2C1AEF2F2BD58CB66A6970E6D0A5B34A, ___aotDllName_0)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2591[1] = 
+{
+	static_cast<int32_t>(offsetof(StartEntry_tC73E29FBB0C2C2D1016268F8C4A60898D7B829DF_StaticFields, ___hotfixAss_4)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2593[3] = 
 {
 	static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___IsTextualNodeBitmap_0)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___CanReadContentAsBitmap_1)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___HasValueBitmap_2)),};
