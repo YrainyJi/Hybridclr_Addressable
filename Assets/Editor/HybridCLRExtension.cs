@@ -1,6 +1,6 @@
-using UnityEngine;
-using UnityEditor;
 using System.IO;
+using UnityEditor;
+using UnityEngine;
 
 public class HybridCLRExtension
 {
@@ -10,7 +10,7 @@ public class HybridCLRExtension
     [MenuItem("HybridCLR/Modify Suffix")]
     public static void ModifySuffix()
     {
-        string aotDLLFile = $"{Application.dataPath}/AotDLL";
+        string aotDLLFile = $"{Application.dataPath}/AotDLLBytes";
         if (!Directory.Exists(aotDLLFile)) return;
 
         DirectoryInfo dir = new DirectoryInfo(aotDLLFile);

@@ -1,4 +1,4 @@
-using HotFix;
+using AOT;
 using HybridCLR;
 using System.Collections.Generic;
 using System.Reflection;
@@ -27,13 +27,11 @@ public class StartEntry : MonoBehaviour
 
     private void LoadDLL()
     {
-        Addressables.LoadAssetAsync<TextAsset>("Hotfix.dll").Completed += hotfix =>
+        Addressables.LoadAssetAsync<TextAsset>("AOT.dll").Completed += hotfix =>
         {
             Assembly.Load(hotfix.Result.bytes);
             HotFix();
         };
-
-        HotfixUpdata.Main();
     }
 
     private void HotFix()
@@ -41,6 +39,8 @@ public class StartEntry : MonoBehaviour
         Addressables.LoadAssetAsync<GameObject>("Cube").Completed += obj =>
         {
             Instantiate(obj.Result);
+
+            AOTUpdata.Main();
         };
     }
 

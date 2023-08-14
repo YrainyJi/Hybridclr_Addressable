@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace HotFix
+namespace AOT
 {
-    public class HotfixMono : MonoBehaviour
+    public class AOTMono : MonoBehaviour
     {
 
         void Start()

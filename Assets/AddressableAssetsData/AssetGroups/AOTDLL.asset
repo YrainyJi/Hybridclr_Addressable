@@ -10,31 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: HotfixPrefab
+  m_Name: AOTDLL
   m_EditorClassIdentifier: 
-  m_GroupName: HotfixPrefab
+  m_GroupName: AOTDLL
   m_Data:
     m_SerializedData: []
-  m_GUID: a99240da020a7fd4aba35acdc4e29239
+  m_GUID: 794b108d249c2604e92c9364484c180d
   m_SerializeEntries:
-  - m_GUID: e4aa0498d4032ed4e99994ee8f5b4fdd
-    m_Address: Cube
+  - m_GUID: 8361486d850414c4bbea3089929c5911
+    m_Address: mscorlib.dll
     m_ReadOnly: 0
     m_SerializedLabels:
-    - prefab
-  - m_GUID: d48bdf10f1f98734c8df6c34de274c19
-    m_Address: 1
+    - dll
+  - m_GUID: 7ad68117e00f24e458c51c3483f874da
+    m_Address: System.Core.dll
     m_ReadOnly: 0
     m_SerializedLabels:
-    - prefab
-  - m_GUID: d7700347a8485b0468e2ab19262f1362
-    m_Address: Sphere
+    - dll
+  - m_GUID: 438b753b39d7202498e3edec901d4609
+    m_Address: System.dll
     m_ReadOnly: 0
     m_SerializedLabels:
-    - prefab
+    - dll
+  - m_GUID: d34082ff4305c9545ba39234e87a7589
+    m_Address: AOT.dll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - dll
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1267e5bf6495b7247a41c2f2ff8a0fd0, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 38a7a145fbd81e54ab9347037c4e2657, type: 2}
-    - {fileID: 11400000, guid: a4e5c074d1ab42a45a0f0b462e67d56f, type: 2}
+    - {fileID: 11400000, guid: 609c4456d2402bf4abd37b62777d39b4, type: 2}
+    - {fileID: 11400000, guid: d42f3a80b71c6a14b9e65b949adef3e4, type: 2}

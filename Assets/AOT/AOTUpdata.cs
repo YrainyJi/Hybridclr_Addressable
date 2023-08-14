@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace HotFix
+namespace AOT
 {
-    public class HotfixUpdata
+    public class AOTUpdata
     {
         public static void Main()
         {
