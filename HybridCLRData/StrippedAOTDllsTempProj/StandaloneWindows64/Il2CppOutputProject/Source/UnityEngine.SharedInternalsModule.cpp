@@ -952,8 +952,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void NativeMethodAttribute_set_Is
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativeMethodAttribute__ctor_mCDF45F4290C6955E1E9FE460709D9ACA18B2D06E (NativeMethodAttribute_tDE40C2DA59999D4870D672D8EDACC3504D2FA270* __this, String_t* ___0_name, bool ___1_isFreeFunction, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Bindings.NativeMethodAttribute::set_IsThreadSafe(System.Boolean)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void NativeMethodAttribute_set_IsThreadSafe_m443623C95A2E3552D0A791DC65E20ADFC447AE3F_inline (NativeMethodAttribute_tDE40C2DA59999D4870D672D8EDACC3504D2FA270* __this, bool ___0_value, const RuntimeMethod* method) ;
-// System.Void UnityEngine.Bindings.NativeMethodAttribute::.ctor()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativeMethodAttribute__ctor_mEA2A3B247A134B4453743CCF55655D16C63C741E (NativeMethodAttribute_tDE40C2DA59999D4870D672D8EDACC3504D2FA270* __this, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Bindings.NativePropertyAttribute::set_TargetType(UnityEngine.Bindings.TargetType)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void NativePropertyAttribute_set_TargetType_m858E4E653A2F81F5313EF4F5D69740D945B19ED7_inline (NativePropertyAttribute_tAF7FB03BF7FFE9E8AB0E75B0F842FC0AA22AE607* __this, int32_t ___0_value, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Bindings.NativeMethodAttribute::.ctor(System.String,System.Boolean,System.Boolean)
@@ -968,6 +966,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativeTypeAttribute__ctor_m42A2C59E33BA5
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void NativeTypeAttribute_set_IntermediateScriptingStructName_mA5791DC59CA4C7572D8B5C80D28176559E2BC907_inline (NativeTypeAttribute_tB60F1675F1F20B6CB1B871FDDD067D672F75B8D1* __this, String_t* ___0_value, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Bindings.NotNullAttribute::set_Exception(System.String)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void NotNullAttribute_set_Exception_m04F458FD91F138C58DC3A11E7C8E945701ECA528_inline (NotNullAttribute_t2E29B7802E8ED55CEA04EC4A6C254C6B60272DF7* __this, String_t* ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.Bindings.NativeMethodAttribute::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativeMethodAttribute__ctor_mEA2A3B247A134B4453743CCF55655D16C63C741E (NativeMethodAttribute_tDE40C2DA59999D4870D672D8EDACC3504D2FA270* __this, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Bindings.StaticAccessorAttribute::set_Name(System.String)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void StaticAccessorAttribute_set_Name_m922EC8831D7A1DDE802D33204B88715EEC7B121B_inline (StaticAccessorAttribute_tDE194716AED7A414D473DC570B2E0035A5CE130A* __this, String_t* ___0_value, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Bindings.StaticAccessorAttribute::set_Type(UnityEngine.Bindings.StaticAccessorType)
@@ -1537,14 +1537,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativePropertyAttribute_set_TargetType_m
 	{
 		int32_t L_0 = ___0_value;
 		__this->___U3CTargetTypeU3Ek__BackingField_5 = L_0;
-		return;
-	}
-}
-// System.Void UnityEngine.Bindings.NativePropertyAttribute::.ctor()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativePropertyAttribute__ctor_mAF06F05D29FE386561167B2BDF0149E3744411EA (NativePropertyAttribute_tAF7FB03BF7FFE9E8AB0E75B0F842FC0AA22AE607* __this, const RuntimeMethod* method) 
-{
-	{
-		NativeMethodAttribute__ctor_mEA2A3B247A134B4453743CCF55655D16C63C741E(__this, NULL);
 		return;
 	}
 }

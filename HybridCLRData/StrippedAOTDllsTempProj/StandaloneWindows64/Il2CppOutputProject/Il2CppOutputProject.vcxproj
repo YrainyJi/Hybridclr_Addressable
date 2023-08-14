@@ -71,6 +71,8 @@
     </ClCompile>
     <ClCompile Include="Source\Generics__9.cpp">
     </ClCompile>
+    <ClCompile Include="Source\Hotfix.cpp">
+    </ClCompile>
     <ClCompile Include="Source\HybridCLR.Runtime.cpp">
     </ClCompile>
     <ClCompile Include="Source\Il2CppCCalculateFieldValues.cpp">
@@ -214,6 +216,8 @@
     <ClCompile Include="Source\__Generated.cpp">
     </ClCompile>
     <ClCompile Include="Source\Assembly-CSharp_CodeGen.c">
+    </ClCompile>
+    <ClCompile Include="Source\Hotfix_CodeGen.c">
     </ClCompile>
     <ClCompile Include="Source\HybridCLR.Runtime_CodeGen.c">
     </ClCompile>

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace HotFix
@@ -15,6 +13,12 @@ namespace HotFix
         private static void Start()
         {
             Debug.Log("热更内容");
+            End();
+        }
+
+        private static void End()
+        {
+            Debug.Log("更新完成!");
         }
     }
 }

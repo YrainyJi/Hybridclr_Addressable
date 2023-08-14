@@ -66,18 +66,18 @@ extern void StartEntry_HotFix_mD0233F5BFDA54D3531D185ADBEE7EE1057F14A23 (void);
 extern void StartEntry_LoadMetadataForAOTAssemblies_m5D9ADB1009DB193C981B4E2103F6D3085A3A27D7 (void);
 // 0x0000001B System.Void StartEntry::.ctor()
 extern void StartEntry__ctor_mB21F452D0C4F8AEB14B4630BFF9D73A291BDB861 (void);
-// 0x0000001C System.Void StartEntry::<LoadDLL>b__4_0(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.TextAsset>)
-extern void StartEntry_U3CLoadDLLU3Eb__4_0_m008367E2BFCBAAB39EEDD46A0D34F7D68128BC30 (void);
+// 0x0000001C System.Void StartEntry::<LoadDLL>b__3_0(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.TextAsset>)
+extern void StartEntry_U3CLoadDLLU3Eb__3_0_m6013B2F1C4F559B9534334496B9522FE1D7F36C2 (void);
 // 0x0000001D System.Void StartEntry/<>c::.cctor()
 extern void U3CU3Ec__cctor_m1A1C3BA401001620242A328BE919415B5D5FD3BB (void);
 // 0x0000001E System.Void StartEntry/<>c::.ctor()
 extern void U3CU3Ec__ctor_m22FE902D3EEB663268846050B30D7816CB873749 (void);
-// 0x0000001F System.Void StartEntry/<>c::<HotFix>b__5_0(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.GameObject>)
-extern void U3CU3Ec_U3CHotFixU3Eb__5_0_m826674DD3F2B72C91149238C6814176BDD42111C (void);
-// 0x00000020 System.Void StartEntry/<>c__DisplayClass6_0::.ctor()
-extern void U3CU3Ec__DisplayClass6_0__ctor_m1AD034CD4841FA3B589D3DC9E687E7D32F87B78E (void);
-// 0x00000021 System.Void StartEntry/<>c__DisplayClass6_0::<LoadMetadataForAOTAssemblies>b__0(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.TextAsset>)
-extern void U3CU3Ec__DisplayClass6_0_U3CLoadMetadataForAOTAssembliesU3Eb__0_mCFED396AECF77C03D4873DD270327E20F9CCAF00 (void);
+// 0x0000001F System.Void StartEntry/<>c::<HotFix>b__4_0(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.GameObject>)
+extern void U3CU3Ec_U3CHotFixU3Eb__4_0_m50FCD457B9F041B5125B9F46532FFD12C5ED68BF (void);
+// 0x00000020 System.Void StartEntry/<>c__DisplayClass5_0::.ctor()
+extern void U3CU3Ec__DisplayClass5_0__ctor_m3BCC1FFE49AF27D6810E228402568F085CBBC6CF (void);
+// 0x00000021 System.Void StartEntry/<>c__DisplayClass5_0::<LoadMetadataForAOTAssemblies>b__0(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.TextAsset>)
+extern void U3CU3Ec__DisplayClass5_0_U3CLoadMetadataForAOTAssembliesU3Eb__0_mFB4E63B89F14042A3A8B68D7C9CDE278843A2C74 (void);
 static Il2CppMethodPointer s_methodPointers[33] = 
 {
 	AOTGenericReferences_RefMethods_m17CF257D96D8BC2F232C4C1502905B792D17170C,
@@ -107,48 +107,48 @@ static Il2CppMethodPointer s_methodPointers[33] =
 	StartEntry_HotFix_mD0233F5BFDA54D3531D185ADBEE7EE1057F14A23,
 	StartEntry_LoadMetadataForAOTAssemblies_m5D9ADB1009DB193C981B4E2103F6D3085A3A27D7,
 	StartEntry__ctor_mB21F452D0C4F8AEB14B4630BFF9D73A291BDB861,
-	StartEntry_U3CLoadDLLU3Eb__4_0_m008367E2BFCBAAB39EEDD46A0D34F7D68128BC30,
+	StartEntry_U3CLoadDLLU3Eb__3_0_m6013B2F1C4F559B9534334496B9522FE1D7F36C2,
 	U3CU3Ec__cctor_m1A1C3BA401001620242A328BE919415B5D5FD3BB,
 	U3CU3Ec__ctor_m22FE902D3EEB663268846050B30D7816CB873749,
-	U3CU3Ec_U3CHotFixU3Eb__5_0_m826674DD3F2B72C91149238C6814176BDD42111C,
-	U3CU3Ec__DisplayClass6_0__ctor_m1AD034CD4841FA3B589D3DC9E687E7D32F87B78E,
-	U3CU3Ec__DisplayClass6_0_U3CLoadMetadataForAOTAssembliesU3Eb__0_mCFED396AECF77C03D4873DD270327E20F9CCAF00,
+	U3CU3Ec_U3CHotFixU3Eb__4_0_m50FCD457B9F041B5125B9F46532FFD12C5ED68BF,
+	U3CU3Ec__DisplayClass5_0__ctor_m3BCC1FFE49AF27D6810E228402568F085CBBC6CF,
+	U3CU3Ec__DisplayClass5_0_U3CLoadMetadataForAOTAssembliesU3Eb__0_mFB4E63B89F14042A3A8B68D7C9CDE278843A2C74,
 };
 static const int32_t s_InvokerIndices[33] = 
 {
-	1675,
-	1675,
-	2946,
-	1675,
-	1675,
-	497,
-	1675,
-	1675,
-	1675,
-	1675,
-	1675,
-	1372,
-	1675,
-	1675,
-	1333,
-	2946,
-	1675,
-	1328,
-	1675,
-	1333,
-	1675,
-	1675,
-	1675,
-	1675,
-	1675,
-	1675,
-	1675,
-	1333,
-	2946,
-	1675,
-	1328,
-	1675,
-	1333,
+	1674,
+	1674,
+	2937,
+	1674,
+	1674,
+	496,
+	1674,
+	1674,
+	1674,
+	1674,
+	1674,
+	1371,
+	1674,
+	1674,
+	1332,
+	2937,
+	1674,
+	1327,
+	1674,
+	1332,
+	1674,
+	1674,
+	1674,
+	1674,
+	1674,
+	1674,
+	1674,
+	1332,
+	2937,
+	1674,
+	1327,
+	1674,
+	1332,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 

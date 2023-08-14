@@ -25171,14 +25171,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeCompatibilityAttribute__ctor_mB5A
 		return;
 	}
 }
-// System.Boolean System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::get_WrapNonExceptionThrows()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool RuntimeCompatibilityAttribute_get_WrapNonExceptionThrows_mAC7FC55B21611E2A737E9B1A80534FEC64227E24 (RuntimeCompatibilityAttribute_tABA1CC0B5F3A81EE26AB3A610A052A1641680FFC* __this, const RuntimeMethod* method) 
-{
-	{
-		bool L_0 = __this->___U3CWrapNonExceptionThrowsU3Ek__BackingField_0;
-		return L_0;
-	}
-}
 // System.Void System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::set_WrapNonExceptionThrows(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeCompatibilityAttribute_set_WrapNonExceptionThrows_m0ABCDE69FE8A71B141EC31D327AE575731A3A2DD (RuntimeCompatibilityAttribute_tABA1CC0B5F3A81EE26AB3A610A052A1641680FFC* __this, bool ___0_value, const RuntimeMethod* method) 
 {

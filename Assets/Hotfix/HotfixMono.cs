@@ -7,7 +7,6 @@ namespace HotFix
 
         void Start()
         {
-            HotfixUpdata.Main();
             Debug.Log("add hotfix Mono");
             Cct();
         }

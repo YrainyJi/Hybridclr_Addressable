@@ -1,3 +1,4 @@
+using HotFix;
 using HybridCLR;
 using System.Collections.Generic;
 using System.Reflection;
@@ -7,8 +8,6 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class StartEntry : MonoBehaviour
 {
-    static Assembly hotfixAss;
-
     void Awake()
     {
         LoadDepend();
@@ -30,9 +29,11 @@ public class StartEntry : MonoBehaviour
     {
         Addressables.LoadAssetAsync<TextAsset>("Hotfix.dll").Completed += hotfix =>
         {
-            hotfixAss = Assembly.Load(hotfix.Result.bytes);
+            Assembly.Load(hotfix.Result.bytes);
             HotFix();
         };
+
+        HotfixUpdata.Main();
     }
 
     private void HotFix()
@@ -41,8 +42,6 @@ public class StartEntry : MonoBehaviour
         {
             Instantiate(obj.Result);
         };
-
-        //HotfixUpdata.Main();
     }
 
     private void LoadMetadataForAOTAssemblies()
