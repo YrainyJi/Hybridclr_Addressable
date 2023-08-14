@@ -1,6 +1,0 @@
-*.md linguist-language=C#
-*.html linguist-language=C# 
-*.dll linguist-language=C# 
-*.yml linguist-language=C#
-*.h linguist-language=C# 
-*.cpp linguist-language=C#
