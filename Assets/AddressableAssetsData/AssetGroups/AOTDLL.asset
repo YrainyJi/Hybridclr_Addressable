@@ -37,6 +37,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - dll
+  - m_GUID: 8335db891cc5fff458033505e1026974
+    m_Address: HotFix.dll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - dll
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1267e5bf6495b7247a41c2f2ff8a0fd0, type: 2}
   m_SchemaSet:

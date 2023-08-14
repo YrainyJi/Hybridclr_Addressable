@@ -1,6 +1,6 @@
 <linker>
-  <assembly fullname="AOT, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-    <type fullname="AOT.AOTMono" preserve="all" />
+  <assembly fullname="HotFix, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="HotFix.HotfixContent" preserve="all" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />

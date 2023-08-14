@@ -27,7 +27,7 @@ public class StartEntry : MonoBehaviour
 
     private void LoadDLL()
     {
-        Addressables.LoadAssetAsync<TextAsset>("AOT.dll").Completed += hotfix =>
+        Addressables.LoadAssetAsync<TextAsset>("HotFix.dll").Completed += hotfix =>
         {
             Assembly.Load(hotfix.Result.bytes);
             HotFix();
