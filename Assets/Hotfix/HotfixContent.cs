@@ -8,8 +8,14 @@ namespace HotFix
         {
             Debug.Log("热更脚本");
             AOT.AOTUpdata.StartHotFix();
+            Finshing();
         }
 
+
+        void Finshing()
+        {
+            Debug.Log("热更新完成");
+        }
     }
 }
 

@@ -32,13 +32,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - dll
-  - m_GUID: d34082ff4305c9545ba39234e87a7589
-    m_Address: AOT.dll
+  - m_GUID: 8335db891cc5fff458033505e1026974
+    m_Address: HotFix.dll
     m_ReadOnly: 0
     m_SerializedLabels:
     - dll
-  - m_GUID: 8335db891cc5fff458033505e1026974
-    m_Address: HotFix.dll
+  - m_GUID: d34082ff4305c9545ba39234e87a7589
+    m_Address: AOT.dll
     m_ReadOnly: 0
     m_SerializedLabels:
     - dll
