@@ -20,64 +20,56 @@ public class Loading : MonoBehaviour
 
     IEnumerator Start()
     {
-        // 初始化 Addressables
+        // 初始化 Addressables 的检测更新
         yield return Addressables.InitializeAsync();
 
         // 检查更新
-        AsyncOperationHandle<List<string>> handle = Addressables.CheckForCatalogUpdates(false);
-        yield return handle;
+        var checkHandle = Addressables.CheckForCatalogUpdates(false); ////false是手动释放异步结果对象
+        yield return checkHandle;
 
-        if (handle.Status == AsyncOperationStatus.Succeeded)
+        if (checkHandle.Status == AsyncOperationStatus.Succeeded)
         {
-            List<string> catalogs = handle.Result;
+            List<string> catalogs = checkHandle.Result;
 
             if (catalogs != null && catalogs.Count > 0)
             {
-                for (int i = 0; i < catalogs.Count; i++)
-                {
-                    Debug.Log($"catalog:  {catalogs[i]}");
-                }
-
                 _LoadingShowText.text = "下载更新catalog";
 
+                // 更新目录日志
                 var updateHandle = Addressables.UpdateCatalogs(catalogs, false);
                 yield return updateHandle;
 
                 foreach (var item in updateHandle.Result)
-                {
                     _UpdateKeys.AddRange(item.Keys);
-                }
+
                 _LoadingShowText.text = $"更新catalog完成: {updateHandle.Status}";
+
+                Addressables.Release(updateHandle);
 
                 // 获取下载文件的大小
                 var sizeHandle = Addressables.GetDownloadSizeAsync(_UpdateKeys);
                 yield return sizeHandle;
 
-                long totalDownloadSize = sizeHandle.Result;
-                _LoadingFileSizeText.text = $"下载文件的大小: {totalDownloadSize}";
+                ShowLoadFileSize(sizeHandle.Result);
 
-                if (totalDownloadSize > 0)
+                if (sizeHandle.Result > 0)
                 {
                     // 下载
                     var downloadHandle = Addressables.DownloadDependenciesAsync(_UpdateKeys, Addressables.MergeMode.Union, false);
                     while (!downloadHandle.IsDone)
                     {
-                        if (downloadHandle.Status == AsyncOperationStatus.Failed) break;
-
-                        float percentage = downloadHandle.PercentComplete;
-                        _LoadingShowText.text = $"资源加载进度: {MathF.Round(1 - percentage) * 100}%";
-                        _loadingSlider.value = 1 - percentage;
-
-                        if (percentage >= 0.9f)
-                        {
-                            _loadingSlider.value = 1;
-                        }
+                        float percentage = downloadHandle.GetDownloadStatus().Percent;
+                        _LoadingShowText.text = $"资源加载进度: {percentage}%";
+                        _loadingSlider.value = percentage;
 
                         yield return null;
                     }
 
                     yield return downloadHandle;
+                    Addressables.Release(downloadHandle);
                 }
+
+                Addressables.Release(sizeHandle);
             }
             else
             {
@@ -85,7 +77,14 @@ public class Loading : MonoBehaviour
             }
         }
 
-        Addressables.Release(handle);
+        Addressables.Release(checkHandle);
+    }
+
+    // 显示加载文件的大小
+    void ShowLoadFileSize(long totalDownloadSize)
+    {
+        float size = totalDownloadSize / (1024.0f * 1024.0f);
+        _LoadingFileSizeText.text = $"下载文件的大小: {size.ToString("0.00")} M";
     }
 
 }
