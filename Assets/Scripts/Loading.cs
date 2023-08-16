@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ public class Loading : MonoBehaviour
     private Text _LoadingFileSizeText;
 
     // 先进先出的队列
-    private List<object> _UpdateKeys = new List<object>();
+    private List<IResourceLocator> _UpdateKeys = new List<IResourceLocator>();
 
     IEnumerator Start()
     {
@@ -24,7 +25,7 @@ public class Loading : MonoBehaviour
         yield return Addressables.InitializeAsync();
 
         // 检查更新
-        var checkHandle = Addressables.CheckForCatalogUpdates(false); ////false是手动释放异步结果对象
+        AsyncOperationHandle<List<string>> checkHandle = Addressables.CheckForCatalogUpdates(false); ////false是手动释放异步结果对象
         yield return checkHandle;
 
         if (checkHandle.Status == AsyncOperationStatus.Succeeded)
@@ -36,18 +37,18 @@ public class Loading : MonoBehaviour
                 _LoadingShowText.text = "下载更新catalog";
 
                 // 更新目录日志
-                var updateHandle = Addressables.UpdateCatalogs(catalogs, false);
+                AsyncOperationHandle<List<IResourceLocator>> updateHandle = Addressables.UpdateCatalogs(catalogs, false);
                 yield return updateHandle;
 
                 foreach (var item in updateHandle.Result)
-                    _UpdateKeys.AddRange(item.Keys);
+                    _UpdateKeys.Add(item);
 
-                _LoadingShowText.text = $"更新catalog完成: {updateHandle.Status}";
+                _LoadingShowText.text = $"需要更新的资源: {_UpdateKeys.Count} 个";
 
                 Addressables.Release(updateHandle);
 
                 // 获取下载文件的大小
-                var sizeHandle = Addressables.GetDownloadSizeAsync(_UpdateKeys);
+                AsyncOperationHandle<long> sizeHandle = Addressables.GetDownloadSizeAsync(_UpdateKeys);
                 yield return sizeHandle;
 
                 ShowLoadFileSize(sizeHandle.Result);
@@ -55,7 +56,7 @@ public class Loading : MonoBehaviour
                 if (sizeHandle.Result > 0)
                 {
                     // 下载
-                    var downloadHandle = Addressables.DownloadDependenciesAsync(_UpdateKeys, Addressables.MergeMode.Union, false);
+                    AsyncOperationHandle downloadHandle = Addressables.DownloadDependenciesAsync(_UpdateKeys, Addressables.MergeMode.Union, false);
                     while (!downloadHandle.IsDone)
                     {
                         float percentage = downloadHandle.GetDownloadStatus().Percent;
