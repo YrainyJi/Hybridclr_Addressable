@@ -22,26 +22,29 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - dll
+    - AOTDLL
+    - aotdll
   - m_GUID: 7ad68117e00f24e458c51c3483f874da
     m_Address: System.Core.dll
     m_ReadOnly: 0
     m_SerializedLabels:
     - dll
+    - AOTDLL
+    - aotdll
   - m_GUID: 438b753b39d7202498e3edec901d4609
     m_Address: System.dll
     m_ReadOnly: 0
     m_SerializedLabels:
     - dll
-  - m_GUID: 8335db891cc5fff458033505e1026974
-    m_Address: HotFix.dll
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - dll
+    - AOTDLL
+    - aotdll
   - m_GUID: d34082ff4305c9545ba39234e87a7589
     m_Address: AOT.dll
     m_ReadOnly: 0
     m_SerializedLabels:
     - dll
+    - HotFix
+    - aotdll
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1267e5bf6495b7247a41c2f2ff8a0fd0, type: 2}
   m_SchemaSet:

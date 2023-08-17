@@ -44,6 +44,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6fd6643a2f05b1c4aa6e461d4f695975, type: 2}
   - {fileID: 11400000, guid: c20f47adab3abc34698e9f8c22c2c3b9, type: 2}
   - {fileID: 11400000, guid: 87486b596b3ea2a4188d5e88cc9a8081, type: 2}
+  - {fileID: 11400000, guid: 0bb2082a9638dc744bf619bdfedc16c5, type: 2}
   - {fileID: 11400000, guid: 7694a0c495107054c9e102ffe34e039d, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
@@ -87,7 +88,8 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - prefab
-    - dll
+    - aotdll
+    - hotfixdll
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: e5ad9dc86c96fab4aadead23c3528676, type: 2}
