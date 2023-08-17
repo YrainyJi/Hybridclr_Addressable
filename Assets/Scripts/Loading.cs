@@ -17,7 +17,7 @@ public class Loading : MonoBehaviour
     private Text _LoadingFileSizeText;
 
     // 先进先出的队列
-    private List<IResourceLocator> _UpdateKeys = new List<IResourceLocator>();
+    private List<object> _UpdateKeys = new List<object>();
 
     IEnumerator Start()
     {
@@ -40,37 +40,14 @@ public class Loading : MonoBehaviour
                 AsyncOperationHandle<List<IResourceLocator>> updateHandle = Addressables.UpdateCatalogs(catalogs, false);
                 yield return updateHandle;
 
-                foreach (var item in updateHandle.Result)
-                    _UpdateKeys.Add(item);
+                _LoadingShowText.text = $"需要更新的资源: {updateHandle.Result.Count} 个";
 
-                _LoadingShowText.text = $"需要更新的资源: {_UpdateKeys.Count} 个";
+                foreach (var item in updateHandle.Result)
+                    _UpdateKeys.AddRange(item.Keys);
+
+                yield return GetUpdateSizeProgress(_UpdateKeys);
 
                 Addressables.Release(updateHandle);
-
-                // 获取下载文件的大小
-                AsyncOperationHandle<long> sizeHandle = Addressables.GetDownloadSizeAsync(_UpdateKeys);
-                yield return sizeHandle;
-
-                ShowLoadFileSize(sizeHandle.Result);
-
-                if (sizeHandle.Result > 0)
-                {
-                    // 下载
-                    AsyncOperationHandle downloadHandle = Addressables.DownloadDependenciesAsync(_UpdateKeys, Addressables.MergeMode.Union, false);
-                    while (!downloadHandle.IsDone)
-                    {
-                        float percentage = downloadHandle.GetDownloadStatus().Percent;
-                        _LoadingShowText.text = $"资源加载进度: {percentage}%";
-                        _loadingSlider.value = percentage;
-
-                        yield return null;
-                    }
-
-                    yield return downloadHandle;
-                    Addressables.Release(downloadHandle);
-                }
-
-                Addressables.Release(sizeHandle);
             }
             else
             {
@@ -81,11 +58,34 @@ public class Loading : MonoBehaviour
         Addressables.Release(checkHandle);
     }
 
-    // 显示加载文件的大小
-    void ShowLoadFileSize(long totalDownloadSize)
+    // 获取更新内容的大小和进度
+    IEnumerator GetUpdateSizeProgress(IEnumerable key)
     {
-        float size = totalDownloadSize / (1024.0f * 1024.0f);
+        // 获取下载文件的大小
+        AsyncOperationHandle<long> sizeHandle = Addressables.GetDownloadSizeAsync(key);
+        yield return sizeHandle;
+
+        // 显示加载文件的大小
+        float size = sizeHandle.Result / (1024.0f * 1024.0f);
         _LoadingFileSizeText.text = $"下载文件的大小: {size.ToString("0.00")} M";
+
+        if (sizeHandle.Result > 0)
+        {
+            // 下载
+            AsyncOperationHandle downloadHandle = Addressables.DownloadDependenciesAsync(key, Addressables.MergeMode.Union, false);
+            while (downloadHandle.IsValid())
+            {
+                float percentage = downloadHandle.GetDownloadStatus().Percent;
+                _LoadingShowText.text = $"资源加载进度: {percentage * 100}%";
+                _loadingSlider.value = percentage;
+                yield return null;
+
+                if (percentage == 1)
+                    Addressables.Release(downloadHandle);
+            }
+        }
+
+        Addressables.Release(sizeHandle);
     }
 
 }
