@@ -8,7 +8,6 @@ namespace AOT
         {
             Debug.Log("开始更新");
             Start();
-
         }
 
         private static void Start()
@@ -21,6 +20,7 @@ namespace AOT
         {
             Debug.Log("更新完成!");
         }
+
 
         public static void StartHotFix()
         {

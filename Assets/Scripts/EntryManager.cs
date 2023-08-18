@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.UI;
 
 public class EntryManager : MonoBehaviour
 {
@@ -16,22 +15,28 @@ public class EntryManager : MonoBehaviour
     [SerializeField]
     private AssetLabelReference _HotfixDll;
 
-    [SerializeField]
-    private Slider _loadingSlider;
-    [SerializeField]
-    private Text _LoadingShowText;
-    [SerializeField]
-    private Text _LoadingFileSizeText;
-
     // 先进先出的队列
     private List<object> _UpdateKeys = new List<object>();
 
-    public static event Action HotfixStartHandle;
+    /// <summary>
+    /// 热更新开始的事件回调
+    /// </summary>
+    public static event Action HotfixStartEvent = null;
+
+    /// <summary>
+    /// 得到下载大小的事件回调
+    /// </summary>
+    public static event Action<float> ResourceSizeEvent = null;
+    /// <summary>
+    /// 下载进度的事件回调
+    /// </summary>
+    public static event Action<float> DowonloadPercentEvent = null;
 
     public static Action StartHandle = null;
 
     void Awake()
     {
+        DontDestroyOnLoad(this);
         StartHandle = EntryStart;
     }
 
@@ -45,7 +50,7 @@ public class EntryManager : MonoBehaviour
         // 更新检查任务
         yield return CheckUpdata();
 
-        HotfixStartHandle?.Invoke();
+        HotfixStartEvent?.Invoke();
     }
 
     IEnumerator CheckUpdata()
@@ -60,71 +65,89 @@ public class EntryManager : MonoBehaviour
 
     #region 检测更新
 
+    /// <summary>
+    /// 检查资源更新
+    /// </summary>
     IEnumerator UpdataAddress()
     {
-        //Debug.Log("~~~~~~~~~~初始化~~~~~~~~~~~~");
         // 初始化 Addressables 的检测更新
         yield return Addressables.InitializeAsync();
 
         // 检查更新
-        AsyncOperationHandle<List<string>> checkHandle = Addressables.CheckForCatalogUpdates(false); ////false是手动释放异步结果对象
+        AsyncOperationHandle<List<string>> checkHandle = Addressables.CheckForCatalogUpdates(false); //false是手动释放异步结果对象
         yield return checkHandle;
 
-        if (checkHandle.Status == AsyncOperationStatus.Succeeded)
+        if (checkHandle.Status == AsyncOperationStatus.Failed)
         {
-            List<string> catalogs = checkHandle.Result;
+            Debug.LogError("版本检测失败:" + checkHandle.OperationException.ToString());
+            yield break;
+        }
 
-            if (catalogs != null && catalogs.Count > 0)
+        List<string> catalogs = checkHandle.Result;
+
+        if (catalogs.Count > 0)
+        {
+            // 更新目录列表
+            AsyncOperationHandle<List<IResourceLocator>> updateHandle = Addressables.UpdateCatalogs(catalogs, false);
+            yield return updateHandle;
+
+            if (updateHandle.Status == AsyncOperationStatus.Failed)
             {
-                _LoadingShowText.text = "下载更新catalog";
-
-                // 更新目录日志
-                AsyncOperationHandle<List<IResourceLocator>> updateHandle = Addressables.UpdateCatalogs(catalogs, false);
-                yield return updateHandle;
-
-                _LoadingShowText.text = $"需要更新的资源: {updateHandle.Result.Count} 个";
-
-                foreach (var item in updateHandle.Result)
-                    _UpdateKeys.AddRange(item.Keys);
-
-                yield return GetUpdateSizeProgress(_UpdateKeys);
-
-                Addressables.Release(updateHandle);
+                Debug.LogError("版本更新失败:" + updateHandle.OperationException.ToString());
+                yield break;
             }
-            else
+
+            // 更新列表迭代器
+            List<IResourceLocator> locators = updateHandle.Result;
+            foreach (var locator in locators)
+                _UpdateKeys.AddRange(locator.Keys);
+
+            Addressables.Release(checkHandle);
+            Addressables.Release(updateHandle);
+        }
+        else //版本已经更新过的，采用这种方式
+        {
+            IEnumerable<IResourceLocator> locators = Addressables.ResourceLocators;
+            foreach (var locator in locators)
             {
-                _LoadingShowText.text = "没有需要更新的catalogs信息";
+                _UpdateKeys.AddRange(locator.Keys);
             }
         }
 
-        Addressables.Release(checkHandle);
+        yield return GetUpdateSizeProgress(_UpdateKeys);
     }
 
-    // 获取更新内容的大小和进度
-    IEnumerator GetUpdateSizeProgress(IEnumerable key)
+    /// <summary>
+    /// 获取更新内容的大小和进度
+    /// </summary>
+    IEnumerator GetUpdateSizeProgress(IEnumerable<object> key)
     {
-        // 获取下载文件的大小
         AsyncOperationHandle<long> sizeHandle = Addressables.GetDownloadSizeAsync(key);
         yield return sizeHandle;
 
+        if (sizeHandle.Status == AsyncOperationStatus.Failed)
+        {
+            Debug.LogError("资源大小更新失败: " + sizeHandle.OperationException.ToString());
+            yield break;
+        }
+
         // 显示加载文件的大小
         float size = sizeHandle.Result / (1024.0f * 1024.0f);
-        _LoadingFileSizeText.text = $"下载文件的大小: {size.ToString("0.00")} M";
+
+        ResourceSizeEvent?.Invoke(size);
 
         if (sizeHandle.Result > 0)
         {
             // 下载
             AsyncOperationHandle downloadHandle = Addressables.DownloadDependenciesAsync(key, Addressables.MergeMode.Union, false);
-            while (downloadHandle.IsValid())
+            while (!downloadHandle.IsDone)
             {
                 float percentage = downloadHandle.GetDownloadStatus().Percent;
-                _LoadingShowText.text = $"资源加载进度: {percentage * 100}%";
-                _loadingSlider.value = percentage;
+                DowonloadPercentEvent?.Invoke(percentage);
                 yield return null;
-
-                if (percentage == 1)
-                    Addressables.Release(downloadHandle);
             }
+
+            Addressables.Release(downloadHandle);
         }
 
         Addressables.Release(sizeHandle);
@@ -134,9 +157,11 @@ public class EntryManager : MonoBehaviour
 
     #region 加载AOT元数据DLL
 
+    /// <summary>
+    /// 加载补充元数据DLL
+    /// </summary>
     IEnumerator LoadMetaDataForAOTDLL()
     {
-        //Debug.Log("~~~~~~~~~~AOT DLL~~~~~~~~~~~~");
         //这一步实际上是为了解决AOT 泛型类的问题 
         HomologousImageMode mode = HomologousImageMode.SuperSet;
 
@@ -155,15 +180,19 @@ public class EntryManager : MonoBehaviour
 
             Debug.LogWarning(($"加载AOT元数据DLL:{asset.name} 失败,错误码:{errorCode}"));
         }
+
+        Addressables.Release(aots);
     }
 
     #endregion
 
     #region 加载热更DLL
 
+    /// <summary>
+    /// 加载热更新DLL
+    /// </summary>
     IEnumerator LoadHotFixDLL()
     {
-        //Debug.Log("~~~~~~~~~~热更 DLL~~~~~~~~~~~~");
         AsyncOperationHandle<IList<TextAsset>> hotfixs = Addressables.LoadAssetsAsync<TextAsset>(_HotfixDll, null);
         yield return hotfixs;
 
@@ -173,6 +202,8 @@ public class EntryManager : MonoBehaviour
             Assembly.Load(hotfix.bytes);
             Debug.Log($"加载热更DLL: {hotfix.name} 完成");
         }
+
+        Addressables.Release(hotfixs);
     }
 
     #endregion
