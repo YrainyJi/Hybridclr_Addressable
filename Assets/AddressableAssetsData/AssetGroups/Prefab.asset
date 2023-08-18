@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SerializedLabels:
     - prefab
   - m_GUID: d48bdf10f1f98734c8df6c34de274c19
-    m_Address: 1
+    m_Address: mat
     m_ReadOnly: 0
     m_SerializedLabels:
     - prefab
